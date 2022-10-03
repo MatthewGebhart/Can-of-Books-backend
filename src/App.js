@@ -20,7 +20,7 @@ class App extends React.Component {
           <Header />
           <Routes>
             <Route 
-              exact path="/home"
+              exact path="/book"
               element={<BestBooks />}
             >
             </Route>
