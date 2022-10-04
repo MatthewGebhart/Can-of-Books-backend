@@ -4,8 +4,13 @@ class Profile extends Component {
 
   render() {
     /* TODO: render information about the developers */
-    return <p>Profile page coming soon</p>
-  }
+    return (
+      <div>
+      <p>Erik Dodd - Chief backend engineer</p>
+      <p>Matthew Gebhart - Chief frontend engineer</p>
+      </div>
+    )  
+}
 };
 
 export default Profile;
