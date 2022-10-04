@@ -4,32 +4,30 @@
 **Version**: 1.0.1
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
-
+Finding a place to store and view our favorite books
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+all will be run through connected front and backend deployments
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+ JavaScript, CSS, Node.js, Express server. MongoDB for the database. 
+ Frontend and Backend deployed to Netlify and Heroku respectively
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+10-3-2022 - Initial proof of life and implementation of sample database located on MongoDB. 
 
 ## Estimates
-Name of feature: ________________________________
+Name of feature: ___Building CRUD apps with MongoDB_____________________________
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: __3___
 
-Start time: _____
+Start time: __1___
 
-Finish time: _____
+Finish time: __7pm___
 
-Actual time needed to complete: _____
+Actual time needed to complete: _6____
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+Erik Dodd for pair programming and working on the backend together. 
 
 ## Paired Programming expectations (with Erik Dodd)
 
