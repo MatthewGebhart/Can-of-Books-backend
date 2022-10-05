@@ -44,13 +44,29 @@ class BestBooks extends React.Component {
     this.getBooks();
   };
 
-handleClick = () => {
+  handleClick = () => {
   this.setState({showModal: true})
 }
 
 
-hideModal =() => {
+  hideModal =() => {
   this.setState({showModal: false})
+}
+
+  handleDelete = async (bookToDelete) => {
+  try {
+    const response = await axios.delete(`${process.env.REACT_APP_SERVER_REMOTE}/book/${bookToDelete._id}`);
+    console.log('The response.status is: ', response.status);
+    const filteredBooks = this.state.books.filter(book => {
+      return book._id !== bookToDelete._id;
+    });
+    this.setState({
+      books: filteredBooks,
+    })
+  } catch (error) {
+    console.log("We have an error: Oh NO ", error.response);
+  }
+
 }
 
 // setShowModal = () => {
@@ -70,7 +86,9 @@ hideModal =() => {
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
 
         {this.state.books.length ? (
-          <Book books={this.state.books} />
+          <Book books={this.state.books}
+                handleDelete={this.handleDelete} 
+                />
         ) : (
           <h3>No Books Found :(</h3>
         )}
