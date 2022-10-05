@@ -24,6 +24,10 @@ class Book extends React.Component {
                                             <Button onClick={() => this.props.handleDelete(data)} key={idx} variant="warning" type="submit">
                                                 Delete Book
                                             </Button>
+                                            <Button onClick={() => this.props.handleBookUpdate}
+                                             key={idx} variant="warning" type="submit">
+                                                Update Book
+                                            </Button>
                                         </div>
                                     </div>
                                 </div>

@@ -4,6 +4,8 @@ import React from 'react';
 import Book from './components/Book.js';
 import BookFormModal from './components/BookFormModal.js';
 import Button from 'react-bootstrap/Button';
+import BookUpdateModal from './components/BookUpdateModal.js';
+
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -11,6 +13,7 @@ class BestBooks extends React.Component {
     this.state = {
       books: [],
       showModal: false,
+      showUpdateModal: false,
     }
   }
 
@@ -38,11 +41,33 @@ class BestBooks extends React.Component {
     } catch (error) {
         console.log("Error, there is a problem: ", error.response);
     }
-}
+  }
+  handleBookUpdate = async (bookToUpdate) => {
+    this.setState({
+      showUpdateModal: true
+    })
+    try {
+      const url = `${process.env.REACT_APP_SERVER}/book/${bookToUpdate._id}`;
+      const updatedBook = await axios.put(url,bookToUpdate);
+      const updatedBookArray = this.state.books.map(existingBook => {
+        return existingBook._id === bookToUpdate._id ? updatedBook : existingBook;
+      });
+      this.setState({
+        books: updatedBookArray
+      })
+
+    } catch (error) {
+      console.log('error in cat post: ', error.response);
+    }
+  }
 
   componentDidMount() {
     this.getBooks();
   };
+
+  handleUpdateClick = () => {
+    this.setState({showUpdateModal: true})
+  }
 
   handleClick = () => {
   this.setState({showModal: true})
@@ -96,6 +121,11 @@ class BestBooks extends React.Component {
         showModal={this.state.showModal}
         hideModal={this.hideModal}
         handleBookCreate={this.handleBookCreate}
+        />
+        <BookUpdateModal
+          handleBookUpdate={this.handleBookUpdate}
+          hideModal={this.hideModal}
+          showUpdateModal={this.state.showUpdateModal}
         />
       </>
     )
