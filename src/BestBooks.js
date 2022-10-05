@@ -16,7 +16,7 @@ class BestBooks extends React.Component {
 
   getBooks = async () => {
     try {
-      let bookData = await axios.get(`${process.env.REACT_APP_SERVER}/book`);
+      let bookData = await axios.get(`${process.env.REACT_APP_SERVER_REMOTE}/book`);
       this.setState({
         books: bookData.data
       })
@@ -29,7 +29,7 @@ class BestBooks extends React.Component {
   handleBookCreate = async (bookInfo) => {
     console.log ('bookInfo is:', bookInfo);
     try {
-        const res = await axios.post(`${process.env.REACT_APP_SERVER}/book`, bookInfo);
+        const res = await axios.post(`${process.env.REACT_APP_SERVER_REMOTE}/book`, bookInfo);
         const createdBook = res.data;
         console.log(res.data);
         this.setState({
