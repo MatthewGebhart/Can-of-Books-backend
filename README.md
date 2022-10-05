@@ -14,6 +14,7 @@ all will be run through connected front and backend deployments
 
 ## Change Log
 10-3-2022 - Initial proof of life and implementation of sample database located on MongoDB. 
+10-4-22 - Added form to add new books to db and button to delete books from db
 
 ## Estimates
 Name of feature: ___Building CRUD apps with MongoDB_____________________________
@@ -25,6 +26,17 @@ Start time: __1___
 Finish time: __7pm___
 
 Actual time needed to complete: _6____
+
+Name of feature: ___Resource Create and Delete of CRUD_____________________________
+
+Estimate of time needed to complete: __4___
+
+Start time: __1___
+
+Finish time: __6:30pm___
+
+Actual time needed to complete: _5.5____
+
 
 ## Credit and Collaborations
 Erik Dodd for pair programming and working on the backend together. 

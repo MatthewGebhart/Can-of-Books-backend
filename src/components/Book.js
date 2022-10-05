@@ -1,6 +1,7 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -20,6 +21,9 @@ class Book extends React.Component {
                                         <div>
                                             <h3>Description:</h3>
                                             <p>{data.description}</p>
+                                            <Button onClick={() => this.props.handleDelete(data)} key={idx} variant="warning" type="submit">
+                                                Delete Book
+                                            </Button>
                                         </div>
                                     </div>
                                 </div>
