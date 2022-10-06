@@ -1,7 +1,7 @@
 # can-of-books
 
 **Author**: Matthew Gebhart and Erik Dodd
-**Version**: 1.0.1
+**Version**: 1.0.3
 
 ## Overview
 Finding a place to store and view our favorite books
@@ -14,7 +14,8 @@ all will be run through connected front and backend deployments
 
 ## Change Log
 10-3-2022 - Initial proof of life and implementation of sample database located on MongoDB. 
-10-4-22 - Added form to add new books to db and button to delete books from db
+10-4-2022 - Added form to add new books to db and button to delete books from db
+10-5-2022 - Added option to update Book data with PUT command utilizing a nested form in a modal
 
 ## Estimates
 Name of feature: ___Building CRUD apps with MongoDB_____________________________
@@ -36,6 +37,16 @@ Start time: __1___
 Finish time: __6:30pm___
 
 Actual time needed to complete: _5.5____
+
+Name of feature: ___Update of CRUD_____________________________
+
+Estimate of time needed to complete: __4___
+
+Start time: __1:30___
+
+Finish time: __6:30pm___
+
+Actual time needed to complete: _5____
 
 
 ## Credit and Collaborations

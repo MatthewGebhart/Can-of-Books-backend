@@ -1,20 +1,10 @@
 import React from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal,} from 'react-bootstrap';
 import BookUpdateForm from './BookUpdateForm';
 
 class BookUpdateModal extends React.Component {
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        const bookToUpdate = {
-            title: e.target.title.value || this.props.book.title,
-            description: e.target.description.value || this.props.book.description,
-            status: e.target.status.value || this.props.book.status,
-            _id: this.props.cat._id,
-            _v: this.props.cat.v_v,
-        }
-        this.props.updateBooks(bookToUpdate);
-    }
+   
 
     render() {
         return (
@@ -22,6 +12,7 @@ class BookUpdateModal extends React.Component {
                 <Modal
                     show={this.props.showUpdateModal}
                     onHide={this.props.hideModal}
+                    books={this.props.books}
                     centered
                     size='lg'>
                     <Modal.Header closeButton>
@@ -32,11 +23,9 @@ class BookUpdateModal extends React.Component {
                     <Modal.Body>
                         <BookUpdateForm
                             handleBookUpdate={this.props.handleBookUpdate}
+                            bookToUpdate={this.props.bookToUpdate}
                         >
                         </BookUpdateForm>
-                        <Button variant="primary" type="submit">
-                            Submit
-                        </Button>
                     </Modal.Body>
                 </Modal>
             </>

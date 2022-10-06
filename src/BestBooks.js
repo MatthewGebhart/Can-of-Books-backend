@@ -14,6 +14,7 @@ class BestBooks extends React.Component {
       books: [],
       showModal: false,
       showUpdateModal: false,
+      bookToUpdate: {title: 'testing'},
     }
   }
 
@@ -43,14 +44,12 @@ class BestBooks extends React.Component {
     }
   }
   handleBookUpdate = async (bookToUpdate) => {
-    this.setState({
-      showUpdateModal: true
-    })
+    console.log(bookToUpdate);
     try {
-      const url = `${process.env.REACT_APP_SERVER}/book/${bookToUpdate._id}`;
-      const updatedBook = await axios.put(url,bookToUpdate);
+      const url = `${process.env.REACT_APP_SERVER_REMOTE}/book/${bookToUpdate._id}`;
+      const updatedBook = await axios.put(url, bookToUpdate);
       const updatedBookArray = this.state.books.map(existingBook => {
-        return existingBook._id === bookToUpdate._id ? updatedBook : existingBook;
+        return existingBook._id === bookToUpdate._id ? updatedBook.data : existingBook;
       });
       this.setState({
         books: updatedBookArray
@@ -65,17 +64,20 @@ class BestBooks extends React.Component {
     this.getBooks();
   };
 
-  handleUpdateClick = () => {
+  handleUpdateClick = (selectedBook) => {
+
     this.setState({showUpdateModal: true})
+    this.setState({bookToUpdate: selectedBook})
   }
 
   handleClick = () => {
   this.setState({showModal: true})
-}
+} 
 
 
   hideModal =() => {
-  this.setState({showModal: false})
+  this.setState({showModal: false});
+  this.setState({showUpdateModal: false})
 }
 
   handleDelete = async (bookToDelete) => {
@@ -112,7 +114,8 @@ class BestBooks extends React.Component {
 
         {this.state.books.length ? (
           <Book books={this.state.books}
-                handleDelete={this.handleDelete} 
+                handleDelete={this.handleDelete}
+                handleUpdateClick={this.handleUpdateClick} 
                 />
         ) : (
           <h3>No Books Found :(</h3>
@@ -121,11 +124,13 @@ class BestBooks extends React.Component {
         showModal={this.state.showModal}
         hideModal={this.hideModal}
         handleBookCreate={this.handleBookCreate}
+      
         />
         <BookUpdateModal
-          handleBookUpdate={this.handleBookUpdate}
-          hideModal={this.hideModal}
           showUpdateModal={this.state.showUpdateModal}
+          hideModal={this.hideModal}
+          handleBookUpdate={this.handleBookUpdate}
+          bookToUpdate={this.state.bookToUpdate}
         />
       </>
     )
