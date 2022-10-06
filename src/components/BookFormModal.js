@@ -20,7 +20,6 @@ class BookFormModal extends React.Component {
                 <BookForm
                 handleBookCreate={this.props.handleBookCreate}
                 >
-
                 </BookForm>
             </Modal.Body>
             </Modal>
